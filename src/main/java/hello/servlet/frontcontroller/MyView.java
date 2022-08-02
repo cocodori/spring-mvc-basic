@@ -6,10 +6,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class MemberFormControllerV1 implements ControllerV1 {
-    @Override
-    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String viewPath = "/WEB-INF/views/new-form.jsp";
+public class MyView {
+
+    private String viewPath;
+
+    public MyView(String viewPath) {
+        this.viewPath = viewPath;
+    }
+
+    public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
     }
